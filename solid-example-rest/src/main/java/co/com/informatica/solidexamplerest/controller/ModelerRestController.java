@@ -1,5 +1,6 @@
 package co.com.informatica.solidexamplerest.controller;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,13 +17,13 @@ import co.com.informatica.solidexamplerest.dto.SimpleDTO;
 @RestController()
 public class ModelerRestController {
 	/**
-	 * 
+	 * Principio de Segregación de la interfaz
 	 * @return
 	 */
-	@PostMapping("/interface")
-	public @ResponseBody SimpleDTO animalInstancia(@RequestBody SimpleDTO e){
-		Ballena b = new Ballena(e.getIn());
-		Murcielago m = new Murcielago(e.getIn());
+	@GetMapping("/interface")
+	public @ResponseBody SimpleDTO animalInstancia(){
+		Ballena b = new Ballena(0);
+		Murcielago m = new Murcielago(0);
 		b.recorrerDistancia(2);
 		m.recorrerDistancia(3);
 		SimpleDTO res= new SimpleDTO(b.getDistanciaNadada(),
@@ -30,16 +31,24 @@ public class ModelerRestController {
 				.concat(m.volar()).concat(m.comer()));
 		return res;
 	}
-	
+	/**
+	 * Principio de responsabilidad unica
+	 * Principio de sustitución de liskov:
+	 *  Una clase debería poder ser reemplazada por las subclases  
+	 * @param m
+	 * @return
+	 */
 	@PutMapping("/responsability/ballena")
-	public @ResponseBody SimpleDTO crearBallena(@RequestBody Murcielago m) {
+	public @ResponseBody SimpleDTO crearBallena(@RequestBody Ballena b) {
 		PersistenciaMamifero pm = new PersistenciaMamifero();
-		pm.guardarMamifero(m);
-		SimpleDTO res= new SimpleDTO(0,pm.actualizarMamifero(m));
+		pm.guardarMamifero(b);
+		SimpleDTO res= new SimpleDTO(0,pm.guardarMamifero(b));
 		return res;
 	}
 	/**
-	 * Responsabilidad unica de clase
+	 * Principio Responsabilidad unica de clase
+	 * Principio de sustitución de liskov:
+	 *  Una clase debería poder ser reemplazada por las subclases 
 	 * @param e
 	 * @return
 	 */
@@ -50,8 +59,9 @@ public class ModelerRestController {
 		return res;
 	}
 	/**
-	 * Responsabilidad unica de clase
-	 * Substitucion de clase
+	 * Principio Responsabilidad unica de clase
+	 * Principio de sustitución de liskov:
+	 *  Una clase debería poder ser reemplazada por las subclases 
 	 * @param e
 	 * @return
 	 */
@@ -59,11 +69,13 @@ public class ModelerRestController {
 	public @ResponseBody SimpleDTO crearMurcielago(@RequestBody Murcielago m) {
 		PersistenciaMamifero pm = new PersistenciaMamifero();
 		pm.guardarMamifero(m);
-		SimpleDTO res= new SimpleDTO(0,pm.actualizarMamifero(m));
+		SimpleDTO res= new SimpleDTO(0,pm.guardarMamifero(m));
 		return res;
 	}
 	/**
-	 * Principio de responsabilidad unica
+	 * Principio Responsabilidad unica de clase
+	 * Principio de sustitución de liskov:
+	 * 	Una clase debería poder ser reemplazada por las subclases 
 	 * @param b
 	 * @return
 	 */	
