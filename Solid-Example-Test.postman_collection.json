@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "0bb73167-c828-4d6e-92a7-d6a85c14aa43",
+		"name": "Solid-Example-Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ActualizarMurcielago - ResponsabilidadUnica",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"distanciaVolada\":1\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/solid/responsability/murcielago",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"solid",
+						"responsability",
+						"murcielago"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearMurcielago - ResponsabilidadUnica",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"distanciaVolada\":1\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/solid/responsability/murcielago",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"solid",
+						"responsability",
+						"murcielago"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearBallena - ResponabilidadUnica - Sustitucion",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"distanciaNadada\":1\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/solid/responsability/ballena",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"solid",
+						"responsability",
+						"ballena"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActualizarBallena - ResponabilidadUnica - Sustitucion",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"distanciaNadada\":1\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/solid/responsability/ballena",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"solid",
+						"responsability",
+						"ballena"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Principio Interfaces",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/solid/interface",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"solid",
+						"interface"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
